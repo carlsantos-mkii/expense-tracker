@@ -46,7 +46,7 @@ class _ExpensesState extends State<Expenses> {
 						)
 					)
 				],
-				backgroundColor: Color.fromARGB(255, 39, 39, 39),
+				backgroundColor: const Color.fromARGB(255, 39, 39, 39),
 			),
 			body: Column(
 				children: [
