@@ -15,7 +15,15 @@ class _NewExpenseState extends State<NewExpense> {
   final _amountController = TextEditingController();
 
   void _datePicker() {
+    final now = DateTime.now();
+    final firstDate = DateTime(now.year - 1, now.month, now.day);
 
+    showDatePicker(
+      context: context,
+      initialDate: now,
+      firstDate: firstDate,
+      lastDate: now
+    );
   }
 
   @override
