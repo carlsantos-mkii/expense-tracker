@@ -14,6 +14,10 @@ class _NewExpenseState extends State<NewExpense> {
   final _titleController = TextEditingController();
   final _amountController = TextEditingController();
 
+  void _datePicker() {
+
+  }
+
   @override
   void dispose() {
     _titleController.dispose();
@@ -56,7 +60,7 @@ class _NewExpenseState extends State<NewExpense> {
                   children: [
                     const Text('Selected Date'),
                     IconButton(
-                      onPressed: () {},
+                      onPressed: _datePicker,
                       icon: const Icon(
                         Icons.calendar_month,
                       )
