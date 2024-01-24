@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
+import 'package:expense_tracker/models/expense.dart';
 
 class NewExpense extends StatefulWidget {
 	const NewExpense({super.key});
@@ -13,17 +14,20 @@ class NewExpense extends StatefulWidget {
 class _NewExpenseState extends State<NewExpense> {
   final _titleController = TextEditingController();
   final _amountController = TextEditingController();
+  DateTime? _selectedDate;
 
-  void _datePicker() {
+  void _datePicker() async {
     final now = DateTime.now();
     final firstDate = DateTime(now.year - 1, now.month, now.day);
-
-    showDatePicker(
+    final pickedDate = await showDatePicker(
       context: context,
       initialDate: now,
       firstDate: firstDate,
       lastDate: now
     );
+    setState(() {
+      _selectedDate = pickedDate;
+    });
   }
 
   @override
@@ -66,7 +70,7 @@ class _NewExpenseState extends State<NewExpense> {
               Expanded(
                 child: Row(
                   children: [
-                    const Text('Selected Date'),
+                    Text(_selectedDate == null ? 'Select a date.' : formatter.format(_selectedDate!)),
                     IconButton(
                       onPressed: _datePicker,
                       icon: const Icon(
@@ -78,13 +82,20 @@ class _NewExpenseState extends State<NewExpense> {
               )
             ],
           ),
-          Row(children: [
-            ElevatedButton(
-              onPressed: () {
-                print(_titleController.text);
-                print(_amountController.text);
-              },
-              child: const Text('Save Expense'),
+          Row(
+            children: [
+              DropdownButton(
+                items: Category.values.map(
+                  (category) => DropdownMenuItem(child: Text(category.name.toString()),)
+                ).toList(),
+                onChanged: (value) {}
+              ),
+              ElevatedButton(
+                onPressed: () {
+                  print(_titleController.text);
+                  print(_amountController.text);
+                },
+                child: const Text('Save Expense'),
               ),
               const Spacer(),
               TextButton(
@@ -92,7 +103,7 @@ class _NewExpenseState extends State<NewExpense> {
                   Navigator.pop(context);
                 },
                 child: const Text('Cancel'),
-                )
+              )
             ],
           )
 				],
