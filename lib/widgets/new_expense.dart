@@ -86,9 +86,14 @@ class _NewExpenseState extends State<NewExpense> {
             children: [
               DropdownButton(
                 items: Category.values.map(
-                  (category) => DropdownMenuItem(child: Text(category.name.toString()),)
+                  (category) => DropdownMenuItem(
+                    value: category,
+                    child: Text(category.name.toString()),
+                  )
                 ).toList(),
-                onChanged: (value) {}
+                onChanged: (value) {
+                  print(value);
+                }
               ),
               ElevatedButton(
                 onPressed: () {
