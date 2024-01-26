@@ -62,6 +62,8 @@ class _NewExpenseState extends State<NewExpense> {
         category: _selectedCategory
       )
     );
+
+    Navigator.pop(context);
   }
 
   @override
@@ -74,7 +76,7 @@ class _NewExpenseState extends State<NewExpense> {
 	@override
 	Widget build(BuildContext context) {
 		return Padding(
-			padding: const EdgeInsets.all(15),
+			padding: const EdgeInsets.fromLTRB(15, 30, 15, 15),
 			child: Column(
 				children: [
 					TextField(
@@ -91,7 +93,6 @@ class _NewExpenseState extends State<NewExpense> {
               Expanded(
                 child: TextField(
                   controller: _amountController,
-                  inputFormatters: [ FilteringTextInputFormatter.digitsOnly ],
                   keyboardType: TextInputType.number,
                   maxLength: 10,
                   decoration: const InputDecoration(
