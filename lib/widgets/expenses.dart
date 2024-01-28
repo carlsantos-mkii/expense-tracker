@@ -14,18 +14,18 @@ class Expenses extends StatefulWidget {
 
 class _ExpensesState extends State<Expenses> {
 	final List<Expense> _registeredExpenses = [
-		Expense(
-			title: 'Learn Flutter',
-			amount: 9.99,
-			date: DateTime.now(),
-			category: Category.leisure
-		),
-		Expense(
-			title: 'JavaScript Course',
-			amount: 12.99,
-			date: DateTime.now(),
-			category: Category.work
-		)
+		// Expense(
+		// 	title: 'Learn Flutter',
+		// 	amount: 9.99,
+		// 	date: DateTime.now(),
+		// 	category: Category.leisure
+		// ),
+		// Expense(
+		// 	title: 'JavaScript Course',
+		// 	amount: 12.99,
+		// 	date: DateTime.now(),
+		// 	category: Category.work
+		// )
 	];
 
   void _openAddExpenseOverlay() {
@@ -50,6 +50,14 @@ class _ExpensesState extends State<Expenses> {
 
 	@override
 	Widget build(BuildContext context) {
+    Widget mainContent = const Center(
+      child: Text('No expenses found.'),
+    );
+
+    if(_registeredExpenses.isNotEmpty) {
+      mainContent = ExpensesList(expenses: _registeredExpenses, onRemoveExpense: _removeExpense);
+    }
+
 		return Scaffold(
 			appBar: AppBar(
 				title: const Text(
@@ -73,7 +81,7 @@ class _ExpensesState extends State<Expenses> {
 				children: [
 					const Text('Chart'),
 					Expanded(
-						child: ExpensesList(expenses: _registeredExpenses, onRemoveExpense: _removeExpense,),
+						child: mainContent,
 					)
 				],
 			),
