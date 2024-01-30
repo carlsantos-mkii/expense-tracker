@@ -92,7 +92,6 @@ class _ExpensesState extends State<Expenses> {
 						)
 					)
 				],
-				backgroundColor: const Color.fromARGB(255, 39, 39, 39),
 			),
 			body: Column(
 				children: [
