@@ -142,7 +142,6 @@ class _NewExpenseState extends State<NewExpense> {
                 onPressed: _submitExpenseData,
                 child: const Text('Save Expense'),
               ),
-              const Spacer(),
               TextButton(
                 onPressed: () {
                   Navigator.pop(context);

@@ -14,7 +14,37 @@ void main() {
           centerTitle: true,
           backgroundColor: kColorScheme.onPrimaryContainer,
           foregroundColor: kColorScheme.primaryContainer,
-        )
+        ),
+        cardTheme: const CardTheme().copyWith(
+          color: kColorScheme.onTertiary,
+          margin: const EdgeInsets.symmetric(vertical: 10, horizontal: 10)
+        ),
+        elevatedButtonTheme: ElevatedButtonThemeData(
+          style: ElevatedButton.styleFrom(
+            backgroundColor: kColorScheme.onSecondaryContainer,
+            foregroundColor: const Color.fromARGB(255, 255, 255, 255)
+          )
+        ),
+        textTheme: const TextTheme().copyWith(
+          titleLarge: const TextStyle(
+            fontSize: 16,
+            color: Color.fromARGB(255, 255, 255, 255)
+          ),
+          titleMedium: const TextStyle(
+            fontSize: 16,
+            color: Color.fromARGB(255, 31, 31, 31)
+          ),
+          bodyLarge:  const TextStyle(
+            color: Color.fromARGB(255, 31, 31, 31)
+          ),
+          bodyMedium:  const TextStyle(
+            color: Color.fromARGB(255, 31, 31, 31)
+          ),
+          bodySmall: const TextStyle(
+            color: Color.fromARGB(255, 31, 31, 31)
+          )
+        ),
+        
       ),
 			home: const Expenses(),
 		)
