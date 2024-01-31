@@ -1,3 +1,4 @@
+import 'package:expense_tracker/main.dart';
 import 'package:flutter/material.dart';
 import 'package:expense_tracker/models/expense.dart';
 
@@ -15,8 +16,15 @@ class ExpenseItem extends StatelessWidget {
 					horizontal: 15
 				),
 				child: Column(
+          crossAxisAlignment: CrossAxisAlignment.start,
 					children: [
-						Text(expense.title),
+						Text(
+              expense.title,
+              style: Theme.of(context).textTheme.titleLarge!.copyWith(
+                fontWeight: FontWeight.w700,
+                color: kColorScheme.onSecondaryContainer
+              ),
+            ),
 						const SizedBox(height: 10,),
 						Row(
 							children: [
