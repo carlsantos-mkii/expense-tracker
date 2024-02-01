@@ -1,4 +1,3 @@
-import 'package:expense_tracker/main.dart';
 import 'package:flutter/material.dart';
 import 'package:expense_tracker/models/expense.dart';
 
@@ -20,9 +19,9 @@ class ExpenseItem extends StatelessWidget {
 					children: [
 						Text(
               expense.title,
-              style: Theme.of(context).textTheme.titleLarge!.copyWith(
-                fontWeight: FontWeight.w700,
-                color: kColorScheme.onSecondaryContainer
+              style: const TextStyle(
+                fontSize: 16,
+                fontWeight: FontWeight.w600
               ),
             ),
 						const SizedBox(height: 10,),
